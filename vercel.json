@@ -5,12 +5,6 @@
       "runtime": "python3.12"
     }
   },
-  "cron": [
-    {
-      "path": "/api",
-      "schedule": "0 0,6,12,18 * * *"
-    }
-  ],
   "routes": [
     {
       "src": "/data/hello.txt",
