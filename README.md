@@ -6,12 +6,11 @@ This example shows how to use Python on Vercel with Serverless Functions using t
 
 ## Demo
 
-https://python-hello-world.vercel.app/
+https://api-jojo-dovpeles-projects.vercel.app/api
 
 ## Running Locally
 
 ```bash
-npm i -g vercel
 vercel dev
 ```
 
