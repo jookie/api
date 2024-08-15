@@ -1,3 +1,23 @@
 {
-  "redirects": [{ "source": "/", "destination": "/api" }]
+  "redirects": [{ "source": "/", "destination": "/api" }],
+  "functions": {
+    "api/main.py": {
+      "runtime": "python3.12"
+    }
+  },
+  "cron": [
+    {
+      "path": "/api",
+      "schedule": "0 0,6,12,18 * * *"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/data/hello.txt",
+      "dest": "/data/hello.txt"
+    }
+  ]
 }
+
+
+

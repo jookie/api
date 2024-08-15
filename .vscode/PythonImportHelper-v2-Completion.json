@@ -1,0 +1,28 @@
+[
+    {
+        "label": "BaseHTTPRequestHandler",
+        "importPath": "http.server",
+        "description": "http.server",
+        "isExtraImport": true,
+        "detail": "http.server",
+        "documentation": {}
+    },
+    {
+        "label": "handler",
+        "kind": 6,
+        "importPath": "api.index",
+        "description": "api.index",
+        "peekOfCode": "class handler(BaseHTTPRequestHandler):\n    def do_GET(self):\n        self.send_response(200)\n        self.send_header('Content-type','text/plain')\n        self.end_headers()\n        self.wfile.write('Hello, world!'.encode('utf-8'))\n        return",
+        "detail": "api.index",
+        "documentation": {}
+    },
+    {
+        "label": "handler",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def handler(request, response):\n    with open(\"data/hello.txt\", \"w\") as file:\n        file.write(\"step-by-step detailed guide and code\")\n    return response.status(200).send(\"File created successfully!\")",
+        "detail": "main",
+        "documentation": {}
+    }
+]
