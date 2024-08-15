@@ -6,7 +6,9 @@ This example shows how to use Python on Vercel with Serverless Functions using t
 
 ## Demo
 
-https://api-jojo-dovpeles-projects.vercel.app/api
+[Project](https://api-jojo-dovpeles-projects.vercel.app/api)
+<br/>
+[VERCEL dashboard](https://vercel.com/dovpeles-projects)
 
 ## Running Locally
 
