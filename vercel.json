@@ -1,17 +1,5 @@
 {
-  "redirects": [{ "source": "/", "destination": "/api" }],
-  "functions": {
-    "api/main.py": {
-      "runtime": "python3.12"
-    }
-  },
-  "routes": [
-    {
-      "src": "/data/hello.txt",
-      "dest": "/data/hello.txt"
-    }
-  ]
+  "redirects": [{ "source": "/", "destination": "/api" }]
 }
-
 
 
