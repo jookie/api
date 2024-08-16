@@ -12,7 +12,6 @@ app.config.from_object(Config())
 scheduler = APScheduler()
 
 class handler(BaseHTTPRequestHandler):
-# This method handles GET requests. 
 # When a GET request is received, this method is automatically called.
     def do_GET(self):
         # Sends a 200 OK response status code to indicate the request was successful.
