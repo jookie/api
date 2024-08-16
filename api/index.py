@@ -2,8 +2,9 @@
 # from flask_apscheduler import APScheduler
 # from drl_task import run_drl_task  # Ensure this function is defined in drl_task.py
 from http.server import BaseHTTPRequestHandler
+from api.index import run_drl_task_local
 
-def run_drl_task_(request_handler):
+def run_drl_task_local(request_handler):
     print("Running DRL task...")
     # Add your DRL script
     print("Running DRL task...")
@@ -19,6 +20,6 @@ class handler(BaseHTTPRequestHandler):
         self.end_headers()
         self.wfile.write('class handler(BaseHTTPRequestHandler):'.encode('utf-8'))
         print("Running DRL task...")
-        # run_drl_task(self)
+        run_drl_task_local(self)
         return
 
