@@ -1,10 +1,26 @@
 [
     {
-        "label": "Flask",
-        "importPath": "flask",
-        "description": "flask",
+        "label": "BaseHTTPRequestHandler",
+        "importPath": "http.server",
+        "description": "http.server",
         "isExtraImport": true,
-        "detail": "flask",
+        "detail": "http.server",
+        "documentation": {}
+    },
+    {
+        "label": "BaseHTTPRequestHandler",
+        "importPath": "http.server",
+        "description": "http.server",
+        "isExtraImport": true,
+        "detail": "http.server",
+        "documentation": {}
+    },
+    {
+        "label": "BaseHTTPRequestHandler",
+        "importPath": "http.server",
+        "description": "http.server",
+        "isExtraImport": true,
+        "detail": "http.server",
         "documentation": {}
     },
     {
@@ -24,51 +40,11 @@
         "documentation": {}
     },
     {
-        "label": "APScheduler",
-        "importPath": "flask_apscheduler",
-        "description": "flask_apscheduler",
-        "isExtraImport": true,
-        "detail": "flask_apscheduler",
-        "documentation": {}
-    },
-    {
         "label": "run_drl_task",
         "importPath": "drl_task",
         "description": "drl_task",
         "isExtraImport": true,
         "detail": "drl_task",
-        "documentation": {}
-    },
-    {
-        "label": "run_drl_task",
-        "importPath": "drl_task",
-        "description": "drl_task",
-        "isExtraImport": true,
-        "detail": "drl_task",
-        "documentation": {}
-    },
-    {
-        "label": "BaseHTTPRequestHandler",
-        "importPath": "http.server",
-        "description": "http.server",
-        "isExtraImport": true,
-        "detail": "http.server",
-        "documentation": {}
-    },
-    {
-        "label": "BaseHTTPRequestHandler",
-        "importPath": "http.server",
-        "description": "http.server",
-        "isExtraImport": true,
-        "detail": "http.server",
-        "documentation": {}
-    },
-    {
-        "label": "BaseHTTPRequestHandler",
-        "importPath": "http.server",
-        "description": "http.server",
-        "isExtraImport": true,
-        "detail": "http.server",
         "documentation": {}
     },
     {
@@ -114,38 +90,11 @@
         "documentation": {}
     },
     {
-        "label": "Config",
-        "kind": 6,
-        "importPath": "api.index",
-        "description": "api.index",
-        "peekOfCode": "class Config:\n    SCHEDULER_API_ENABLED = True\napp = Flask(__name__)\napp.config.from_object(Config())\nscheduler = APScheduler()\nclass handler(BaseHTTPRequestHandler):\n# When a GET request is received, this method is automatically called.\n    def do_GET(self):\n        # Sends a 200 OK response status code to indicate the request was successful.\n        self.send_response(200)",
-        "detail": "api.index",
-        "documentation": {}
-    },
-    {
         "label": "handler",
         "kind": 6,
         "importPath": "api.index",
         "description": "api.index",
         "peekOfCode": "class handler(BaseHTTPRequestHandler):\n# When a GET request is received, this method is automatically called.\n    def do_GET(self):\n        # Sends a 200 OK response status code to indicate the request was successful.\n        self.send_response(200)\n        self.send_header('Content-type','text/plain')\n        self.end_headers()\n        self.wfile.write('class handler(BaseHTTPRequestHandler):'.encode('utf-8'))\n        return",
-        "detail": "api.index",
-        "documentation": {}
-    },
-    {
-        "label": "app",
-        "kind": 5,
-        "importPath": "api.index",
-        "description": "api.index",
-        "peekOfCode": "app = Flask(__name__)\napp.config.from_object(Config())\nscheduler = APScheduler()\nclass handler(BaseHTTPRequestHandler):\n# When a GET request is received, this method is automatically called.\n    def do_GET(self):\n        # Sends a 200 OK response status code to indicate the request was successful.\n        self.send_response(200)\n        self.send_header('Content-type','text/plain')\n        self.end_headers()",
-        "detail": "api.index",
-        "documentation": {}
-    },
-    {
-        "label": "scheduler",
-        "kind": 5,
-        "importPath": "api.index",
-        "description": "api.index",
-        "peekOfCode": "scheduler = APScheduler()\nclass handler(BaseHTTPRequestHandler):\n# When a GET request is received, this method is automatically called.\n    def do_GET(self):\n        # Sends a 200 OK response status code to indicate the request was successful.\n        self.send_response(200)\n        self.send_header('Content-type','text/plain')\n        self.end_headers()\n        self.wfile.write('class handler(BaseHTTPRequestHandler):'.encode('utf-8'))\n        return",
         "detail": "api.index",
         "documentation": {}
     },
