@@ -25,6 +25,15 @@ class handler(BaseHTTPRequestHandler):
         self.send_header('Content-type','text/plain')
         self.end_headers()
         self.wfile.write('class handler(BaseHTTPRequestHandler):'.encode('utf-8'))
-        run_drl_task_local(self)
+        # run_drl_task_local(self)
         return
+def scheduled_task():
+    run_drl_task_local()    
+    
+if __name__ == '__main__':
+    scheduler.init_app(app)
+    scheduler.start()
+    # Schedule the task to run every 10 seconds
+    scheduler.add_job(id='Scheduled Task', func=scheduled_task, trigger='interval', seconds=10)
+    app.run(debug=True)    
 

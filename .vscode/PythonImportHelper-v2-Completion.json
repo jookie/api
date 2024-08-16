@@ -119,7 +119,7 @@
         "kind": 6,
         "importPath": "api.index",
         "description": "api.index",
-        "peekOfCode": "class handler(BaseHTTPRequestHandler):\n# When a GET request is received, this method is automatically called.\n    def do_GET(self):\n        # Sends a 200 OK response status code to indicate the request was successful.\n        self.send_response(200)\n        self.send_header('Content-type','text/plain')\n        self.end_headers()\n        self.wfile.write('class handler(BaseHTTPRequestHandler):'.encode('utf-8'))\n        run_drl_task_local(self)\n        return",
+        "peekOfCode": "class handler(BaseHTTPRequestHandler):\n# When a GET request is received, this method is automatically called.\n    def do_GET(self):\n        # Sends a 200 OK response status code to indicate the request was successful.\n        self.send_response(200)\n        self.send_header('Content-type','text/plain')\n        self.end_headers()\n        self.wfile.write('class handler(BaseHTTPRequestHandler):'.encode('utf-8'))\n        # run_drl_task_local(self)\n        return",
         "detail": "api.index",
         "documentation": {}
     },
@@ -129,6 +129,15 @@
         "importPath": "api.index",
         "description": "api.index",
         "peekOfCode": "def run_drl_task_local(request_handler):\n    request_handler.wfile.write('run_drl_task_local'.encode('utf-8'))\n    # Drl(request_handler, 'req handler')\nclass handler(BaseHTTPRequestHandler):\n# When a GET request is received, this method is automatically called.\n    def do_GET(self):\n        # Sends a 200 OK response status code to indicate the request was successful.\n        self.send_response(200)\n        self.send_header('Content-type','text/plain')\n        self.end_headers()",
+        "detail": "api.index",
+        "documentation": {}
+    },
+    {
+        "label": "scheduled_task",
+        "kind": 2,
+        "importPath": "api.index",
+        "description": "api.index",
+        "peekOfCode": "def scheduled_task():\n    run_drl_task_local()    \nif __name__ == '__main__':\n    scheduler.init_app(app)\n    scheduler.start()\n    # Schedule the task to run every 10 seconds\n    scheduler.add_job(id='Scheduled Task', func=scheduled_task, trigger='interval', seconds=10)\n    app.run(debug=True)",
         "detail": "api.index",
         "documentation": {}
     },
