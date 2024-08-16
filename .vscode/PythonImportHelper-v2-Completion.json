@@ -118,34 +118,34 @@
         "kind": 6,
         "importPath": "api.index",
         "description": "api.index",
-        "peekOfCode": "class Config:\n    SCHEDULER_API_ENABLED = True\napp.config.from_object(Config())\n# Initialize the scheduler\nscheduler = APScheduler()\nscheduler.init_app(app)\nscheduler.start()\n# Define a job to run at regular intervals\n@scheduler.task('interval', id='do_job_1', seconds=10, misfire_grace_time=900)\ndef job1():",
+        "peekOfCode": "class Config:\n    SCHEDULER_API_ENABLED = True\napp = Flask(__name__)\napp.config.from_object(Config())\nscheduler = APScheduler()\nREQUEST_HANDLER = None\ndef run_drl_task_local():\n    REQUEST_HANDLER.wfile.write('class handler(BaseHTTPRequestHandler):'.encode('utf-8'))\n    current_time = datetime.now().time()\n    REQUEST_HANDLER.wfile.write(f'Current Time: {current_time}'.encode('utf-8'))",
         "detail": "api.index",
         "documentation": {}
     },
     {
-        "label": "SimpleHTTPRequestHandler",
+        "label": "handler",
         "kind": 6,
         "importPath": "api.index",
         "description": "api.index",
-        "peekOfCode": "class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):\n    def do_GET(self):\n        self.send_response(200)\n        self.send_header('Content-type', 'text/html')\n        self.end_headers()\n        self.wfile.write(b\"Hello, World! This is a GET response.\")\n@app.route('/')\ndef index():\n    return \"Welcome to the Flask App with APScheduler!\"\nif __name__ == '__main__':",
+        "peekOfCode": "class handler(BaseHTTPRequestHandler):\n# When a GET request is received, this method is automatically called.\n    def do_GET(self):\n        # Sends a 200 OK response status code to indicate the request was successful.\n        REQUEST_HANDLER = self\n        self.send_response(200)\n        self.send_header('Content-type','text/plain')\n        self.end_headers()\n        self.wfile.write('doGet:'.encode('utf-8'))\n        run_drl_task_local(self)",
         "detail": "api.index",
         "documentation": {}
     },
     {
-        "label": "job1",
+        "label": "run_drl_task_local",
         "kind": 2,
         "importPath": "api.index",
         "description": "api.index",
-        "peekOfCode": "def job1():\n    print(f\"Task running at {datetime.now()}\")\n# Define the BaseHTTPRequestHandler to handle HTTP requests\nclass SimpleHTTPRequestHandler(BaseHTTPRequestHandler):\n    def do_GET(self):\n        self.send_response(200)\n        self.send_header('Content-type', 'text/html')\n        self.end_headers()\n        self.wfile.write(b\"Hello, World! This is a GET response.\")\n@app.route('/')",
+        "peekOfCode": "def run_drl_task_local():\n    REQUEST_HANDLER.wfile.write('class handler(BaseHTTPRequestHandler):'.encode('utf-8'))\n    current_time = datetime.now().time()\n    REQUEST_HANDLER.wfile.write(f'Current Time: {current_time}'.encode('utf-8'))\nclass handler(BaseHTTPRequestHandler):\n# When a GET request is received, this method is automatically called.\n    def do_GET(self):\n        # Sends a 200 OK response status code to indicate the request was successful.\n        REQUEST_HANDLER = self\n        self.send_response(200)",
         "detail": "api.index",
         "documentation": {}
     },
     {
-        "label": "index",
+        "label": "scheduled_task",
         "kind": 2,
         "importPath": "api.index",
         "description": "api.index",
-        "peekOfCode": "def index():\n    return \"Welcome to the Flask App with APScheduler!\"\nif __name__ == '__main__':\n    app.run(debug=True)",
+        "peekOfCode": "def scheduled_task():\n    run_drl_task_local()    \nif __name__ == '__main__':\n    scheduler.init_app(app)\n    scheduler.start()\n    # Schedule the task to run every 10 seconds\n    scheduler.add_job(id='Scheduled Task', func=scheduled_task, trigger='interval', seconds=10)\n    app.run(debug=True)",
         "detail": "api.index",
         "documentation": {}
     },
@@ -154,7 +154,7 @@
         "kind": 5,
         "importPath": "api.index",
         "description": "api.index",
-        "peekOfCode": "app = Flask(__name__)\n# Configuration for APScheduler\nclass Config:\n    SCHEDULER_API_ENABLED = True\napp.config.from_object(Config())\n# Initialize the scheduler\nscheduler = APScheduler()\nscheduler.init_app(app)\nscheduler.start()\n# Define a job to run at regular intervals",
+        "peekOfCode": "app = Flask(__name__)\napp.config.from_object(Config())\nscheduler = APScheduler()\nREQUEST_HANDLER = None\ndef run_drl_task_local():\n    REQUEST_HANDLER.wfile.write('class handler(BaseHTTPRequestHandler):'.encode('utf-8'))\n    current_time = datetime.now().time()\n    REQUEST_HANDLER.wfile.write(f'Current Time: {current_time}'.encode('utf-8'))\nclass handler(BaseHTTPRequestHandler):\n# When a GET request is received, this method is automatically called.",
         "detail": "api.index",
         "documentation": {}
     },
@@ -163,7 +163,16 @@
         "kind": 5,
         "importPath": "api.index",
         "description": "api.index",
-        "peekOfCode": "scheduler = APScheduler()\nscheduler.init_app(app)\nscheduler.start()\n# Define a job to run at regular intervals\n@scheduler.task('interval', id='do_job_1', seconds=10, misfire_grace_time=900)\ndef job1():\n    print(f\"Task running at {datetime.now()}\")\n# Define the BaseHTTPRequestHandler to handle HTTP requests\nclass SimpleHTTPRequestHandler(BaseHTTPRequestHandler):\n    def do_GET(self):",
+        "peekOfCode": "scheduler = APScheduler()\nREQUEST_HANDLER = None\ndef run_drl_task_local():\n    REQUEST_HANDLER.wfile.write('class handler(BaseHTTPRequestHandler):'.encode('utf-8'))\n    current_time = datetime.now().time()\n    REQUEST_HANDLER.wfile.write(f'Current Time: {current_time}'.encode('utf-8'))\nclass handler(BaseHTTPRequestHandler):\n# When a GET request is received, this method is automatically called.\n    def do_GET(self):\n        # Sends a 200 OK response status code to indicate the request was successful.",
+        "detail": "api.index",
+        "documentation": {}
+    },
+    {
+        "label": "REQUEST_HANDLER",
+        "kind": 5,
+        "importPath": "api.index",
+        "description": "api.index",
+        "peekOfCode": "REQUEST_HANDLER = None\ndef run_drl_task_local():\n    REQUEST_HANDLER.wfile.write('class handler(BaseHTTPRequestHandler):'.encode('utf-8'))\n    current_time = datetime.now().time()\n    REQUEST_HANDLER.wfile.write(f'Current Time: {current_time}'.encode('utf-8'))\nclass handler(BaseHTTPRequestHandler):\n# When a GET request is received, this method is automatically called.\n    def do_GET(self):\n        # Sends a 200 OK response status code to indicate the request was successful.\n        REQUEST_HANDLER = self",
         "detail": "api.index",
         "documentation": {}
     },
