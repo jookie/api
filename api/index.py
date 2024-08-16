@@ -6,7 +6,7 @@ from drl_task import Drl
 
 def run_drl_task_local(request_handler):
     request_handler.wfile.write('run_drl_task_local'.encode('utf-8'))
-    Drl(request_handler, 'req handler')
+    # Drl(request_handler, 'req handler')
     
 class handler(BaseHTTPRequestHandler):
 # When a GET request is received, this method is automatically called.
