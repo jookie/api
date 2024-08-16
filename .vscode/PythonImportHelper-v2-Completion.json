@@ -56,6 +56,14 @@
         "documentation": {}
     },
     {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
         "label": "run_drl_task",
         "importPath": "drl_task",
         "description": "drl_task",
@@ -110,7 +118,7 @@
         "kind": 6,
         "importPath": "api.index",
         "description": "api.index",
-        "peekOfCode": "class Config:\n    SCHEDULER_API_ENABLED = True\napp = Flask(__name__)\napp.config.from_object(Config())\nscheduler = APScheduler()\ndef run_drl_task_local(request_handler):\n    request_handler.wfile.write('run_drl_task_local'.encode('utf-8'))\n    # Drl(request_handler, 'req handler')\nclass handler(BaseHTTPRequestHandler):\n# When a GET request is received, this method is automatically called.",
+        "peekOfCode": "class Config:\n    SCHEDULER_API_ENABLED = True\napp = Flask(__name__)\napp.config.from_object(Config())\nscheduler = APScheduler()\ndef run_drl_task_local(request_handler):\n    request_handler.wfile.write(''.encode('utf-8'))\n    current_time = datetime.now().time()\n    request_handler.wfile.write(f'Current Time: {current_time}'.encode('utf-8'))\n    # Drl(request_handler, 'req handler')",
         "detail": "api.index",
         "documentation": {}
     },
@@ -128,7 +136,7 @@
         "kind": 2,
         "importPath": "api.index",
         "description": "api.index",
-        "peekOfCode": "def run_drl_task_local(request_handler):\n    request_handler.wfile.write('run_drl_task_local'.encode('utf-8'))\n    # Drl(request_handler, 'req handler')\nclass handler(BaseHTTPRequestHandler):\n# When a GET request is received, this method is automatically called.\n    def do_GET(self):\n        # Sends a 200 OK response status code to indicate the request was successful.\n        self.send_response(200)\n        self.send_header('Content-type','text/plain')\n        self.end_headers()",
+        "peekOfCode": "def run_drl_task_local(request_handler):\n    request_handler.wfile.write(''.encode('utf-8'))\n    current_time = datetime.now().time()\n    request_handler.wfile.write(f'Current Time: {current_time}'.encode('utf-8'))\n    # Drl(request_handler, 'req handler')\nclass handler(BaseHTTPRequestHandler):\n# When a GET request is received, this method is automatically called.\n    def do_GET(self):\n        # Sends a 200 OK response status code to indicate the request was successful.\n        self.send_response(200)",
         "detail": "api.index",
         "documentation": {}
     },
@@ -146,7 +154,7 @@
         "kind": 5,
         "importPath": "api.index",
         "description": "api.index",
-        "peekOfCode": "app = Flask(__name__)\napp.config.from_object(Config())\nscheduler = APScheduler()\ndef run_drl_task_local(request_handler):\n    request_handler.wfile.write('run_drl_task_local'.encode('utf-8'))\n    # Drl(request_handler, 'req handler')\nclass handler(BaseHTTPRequestHandler):\n# When a GET request is received, this method is automatically called.\n    def do_GET(self):\n        # Sends a 200 OK response status code to indicate the request was successful.",
+        "peekOfCode": "app = Flask(__name__)\napp.config.from_object(Config())\nscheduler = APScheduler()\ndef run_drl_task_local(request_handler):\n    request_handler.wfile.write(''.encode('utf-8'))\n    current_time = datetime.now().time()\n    request_handler.wfile.write(f'Current Time: {current_time}'.encode('utf-8'))\n    # Drl(request_handler, 'req handler')\nclass handler(BaseHTTPRequestHandler):\n# When a GET request is received, this method is automatically called.",
         "detail": "api.index",
         "documentation": {}
     },
@@ -155,7 +163,7 @@
         "kind": 5,
         "importPath": "api.index",
         "description": "api.index",
-        "peekOfCode": "scheduler = APScheduler()\ndef run_drl_task_local(request_handler):\n    request_handler.wfile.write('run_drl_task_local'.encode('utf-8'))\n    # Drl(request_handler, 'req handler')\nclass handler(BaseHTTPRequestHandler):\n# When a GET request is received, this method is automatically called.\n    def do_GET(self):\n        # Sends a 200 OK response status code to indicate the request was successful.\n        self.send_response(200)\n        self.send_header('Content-type','text/plain')",
+        "peekOfCode": "scheduler = APScheduler()\ndef run_drl_task_local(request_handler):\n    request_handler.wfile.write(''.encode('utf-8'))\n    current_time = datetime.now().time()\n    request_handler.wfile.write(f'Current Time: {current_time}'.encode('utf-8'))\n    # Drl(request_handler, 'req handler')\nclass handler(BaseHTTPRequestHandler):\n# When a GET request is received, this method is automatically called.\n    def do_GET(self):\n        # Sends a 200 OK response status code to indicate the request was successful.",
         "detail": "api.index",
         "documentation": {}
     },

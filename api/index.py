@@ -2,6 +2,7 @@ from flask import Flask
 from flask_apscheduler import APScheduler
 # from drl_task import run_drl_task  # Ensure this function is defined in drl_task.py
 from http.server import BaseHTTPRequestHandler
+from datetime import datetime
 # from drl_task import Drl
 
 class Config:
@@ -14,7 +15,9 @@ scheduler = APScheduler()
 
 
 def run_drl_task_local(request_handler):
-    request_handler.wfile.write('run_drl_task_local'.encode('utf-8'))
+    request_handler.wfile.write(''.encode('utf-8'))
+    current_time = datetime.now().time()
+    request_handler.wfile.write(f'Current Time: {current_time}'.encode('utf-8'))
     # Drl(request_handler, 'req handler')
     
 class handler(BaseHTTPRequestHandler):
