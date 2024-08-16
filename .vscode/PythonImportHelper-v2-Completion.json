@@ -118,34 +118,34 @@
         "kind": 6,
         "importPath": "api.index",
         "description": "api.index",
-        "peekOfCode": "class Config:\n    SCHEDULER_API_ENABLED = True\napp = Flask(__name__)\napp.config.from_object(Config())\nscheduler = APScheduler()\nrequest_handler_global = None  # Global variable to store the request handler\ndef run_drl_task_local():\n    global request_handler_global\n    if request_handler_global:\n        request_handler_global.wfile.write('class handler(BaseHTTPRequestHandler):'.encode('utf-8'))",
+        "peekOfCode": "class Config:\n    SCHEDULER_API_ENABLED = True\napp.config.from_object(Config())\n# Initialize the scheduler\nscheduler = APScheduler()\nscheduler.init_app(app)\nscheduler.start()\n# Define a job to run at regular intervals\n@scheduler.task('interval', id='do_job_1', seconds=10, misfire_grace_time=900)\ndef job1():",
         "detail": "api.index",
         "documentation": {}
     },
     {
-        "label": "handler",
+        "label": "SimpleHTTPRequestHandler",
         "kind": 6,
         "importPath": "api.index",
         "description": "api.index",
-        "peekOfCode": "class handler(BaseHTTPRequestHandler):\n    def do_GET(self):\n        global request_handler_global\n        self.send_response(200)\n        self.send_header('Content-type','text/plain')\n        self.end_headers()\n        self.wfile.write('doGet:'.encode('utf-8'))\n        request_handler_global = self  # Store the current request handler\n        run_drl_task_local()\n        return",
+        "peekOfCode": "class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):\n    def do_GET(self):\n        self.send_response(200)\n        self.send_header('Content-type', 'text/html')\n        self.end_headers()\n        self.wfile.write(b\"Hello, World! This is a GET response.\")\n@app.route('/')\ndef index():\n    return \"Welcome to the Flask App with APScheduler!\"\nif __name__ == '__main__':",
         "detail": "api.index",
         "documentation": {}
     },
     {
-        "label": "run_drl_task_local",
+        "label": "job1",
         "kind": 2,
         "importPath": "api.index",
         "description": "api.index",
-        "peekOfCode": "def run_drl_task_local():\n    global request_handler_global\n    if request_handler_global:\n        request_handler_global.wfile.write('class handler(BaseHTTPRequestHandler):'.encode('utf-8'))\n        current_time = datetime.now().time()\n        request_handler_global.wfile.write(f'Current Time: {current_time}'.encode('utf-8'))\n    else:\n        print(\"No request handler available\")\nclass handler(BaseHTTPRequestHandler):\n    def do_GET(self):",
+        "peekOfCode": "def job1():\n    print(f\"Task running at {datetime.now()}\")\n# Define the BaseHTTPRequestHandler to handle HTTP requests\nclass SimpleHTTPRequestHandler(BaseHTTPRequestHandler):\n    def do_GET(self):\n        self.send_response(200)\n        self.send_header('Content-type', 'text/html')\n        self.end_headers()\n        self.wfile.write(b\"Hello, World! This is a GET response.\")\n@app.route('/')",
         "detail": "api.index",
         "documentation": {}
     },
     {
-        "label": "scheduled_task",
+        "label": "index",
         "kind": 2,
         "importPath": "api.index",
         "description": "api.index",
-        "peekOfCode": "def scheduled_task():\n    run_drl_task_local()  # Use the stored request handler\nif __name__ == '__main__':\n    scheduler.init_app(app)\n    scheduler.start()\n    scheduler.add_job(id='Scheduled Task', func=scheduled_task, trigger='interval', seconds=5)\n    app.run(debug=True)",
+        "peekOfCode": "def index():\n    return \"Welcome to the Flask App with APScheduler!\"\nif __name__ == '__main__':\n    app.run(debug=True)",
         "detail": "api.index",
         "documentation": {}
     },
@@ -154,7 +154,7 @@
         "kind": 5,
         "importPath": "api.index",
         "description": "api.index",
-        "peekOfCode": "app = Flask(__name__)\napp.config.from_object(Config())\nscheduler = APScheduler()\nrequest_handler_global = None  # Global variable to store the request handler\ndef run_drl_task_local():\n    global request_handler_global\n    if request_handler_global:\n        request_handler_global.wfile.write('class handler(BaseHTTPRequestHandler):'.encode('utf-8'))\n        current_time = datetime.now().time()\n        request_handler_global.wfile.write(f'Current Time: {current_time}'.encode('utf-8'))",
+        "peekOfCode": "app = Flask(__name__)\n# Configuration for APScheduler\nclass Config:\n    SCHEDULER_API_ENABLED = True\napp.config.from_object(Config())\n# Initialize the scheduler\nscheduler = APScheduler()\nscheduler.init_app(app)\nscheduler.start()\n# Define a job to run at regular intervals",
         "detail": "api.index",
         "documentation": {}
     },
@@ -163,16 +163,7 @@
         "kind": 5,
         "importPath": "api.index",
         "description": "api.index",
-        "peekOfCode": "scheduler = APScheduler()\nrequest_handler_global = None  # Global variable to store the request handler\ndef run_drl_task_local():\n    global request_handler_global\n    if request_handler_global:\n        request_handler_global.wfile.write('class handler(BaseHTTPRequestHandler):'.encode('utf-8'))\n        current_time = datetime.now().time()\n        request_handler_global.wfile.write(f'Current Time: {current_time}'.encode('utf-8'))\n    else:\n        print(\"No request handler available\")",
-        "detail": "api.index",
-        "documentation": {}
-    },
-    {
-        "label": "request_handler_global",
-        "kind": 5,
-        "importPath": "api.index",
-        "description": "api.index",
-        "peekOfCode": "request_handler_global = None  # Global variable to store the request handler\ndef run_drl_task_local():\n    global request_handler_global\n    if request_handler_global:\n        request_handler_global.wfile.write('class handler(BaseHTTPRequestHandler):'.encode('utf-8'))\n        current_time = datetime.now().time()\n        request_handler_global.wfile.write(f'Current Time: {current_time}'.encode('utf-8'))\n    else:\n        print(\"No request handler available\")\nclass handler(BaseHTTPRequestHandler):",
+        "peekOfCode": "scheduler = APScheduler()\nscheduler.init_app(app)\nscheduler.start()\n# Define a job to run at regular intervals\n@scheduler.task('interval', id='do_job_1', seconds=10, misfire_grace_time=900)\ndef job1():\n    print(f\"Task running at {datetime.now()}\")\n# Define the BaseHTTPRequestHandler to handle HTTP requests\nclass SimpleHTTPRequestHandler(BaseHTTPRequestHandler):\n    def do_GET(self):",
         "detail": "api.index",
         "documentation": {}
     },

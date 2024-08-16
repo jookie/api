@@ -3,40 +3,35 @@ from flask_apscheduler import APScheduler
 from http.server import BaseHTTPRequestHandler
 from datetime import datetime
 
+app = Flask(__name__)
+
+# Configuration for APScheduler
 class Config:
     SCHEDULER_API_ENABLED = True
 
-app = Flask(__name__)
 app.config.from_object(Config())
+
+# Initialize the scheduler
 scheduler = APScheduler()
+scheduler.init_app(app)
+scheduler.start()
 
-request_handler_global = None  # Global variable to store the request handler
+# Define a job to run at regular intervals
+@scheduler.task('interval', id='do_job_1', seconds=10, misfire_grace_time=900)
+def job1():
+    print(f"Task running at {datetime.now()}")
 
-def run_drl_task_local():
-    global request_handler_global
-    if request_handler_global:
-        request_handler_global.wfile.write('class handler(BaseHTTPRequestHandler):'.encode('utf-8'))
-        current_time = datetime.now().time()
-        request_handler_global.wfile.write(f'Current Time: {current_time}'.encode('utf-8'))
-    else:
-        print("No request handler available")
-
-class handler(BaseHTTPRequestHandler):
+# Define the BaseHTTPRequestHandler to handle HTTP requests
+class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
     def do_GET(self):
-        global request_handler_global
         self.send_response(200)
-        self.send_header('Content-type','text/plain')
+        self.send_header('Content-type', 'text/html')
         self.end_headers()
-        self.wfile.write('doGet:'.encode('utf-8'))
-        request_handler_global = self  # Store the current request handler
-        run_drl_task_local()
-        return
-    
-def scheduled_task():
-    run_drl_task_local()  # Use the stored request handler
+        self.wfile.write(b"Hello, World! This is a GET response.")
+
+@app.route('/')
+def index():
+    return "Welcome to the Flask App with APScheduler!"
 
 if __name__ == '__main__':
-    scheduler.init_app(app)
-    scheduler.start()
-    scheduler.add_job(id='Scheduled Task', func=scheduled_task, trigger='interval', seconds=5)
     app.run(debug=True)
