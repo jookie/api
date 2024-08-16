@@ -8,6 +8,30 @@
         "documentation": {}
     },
     {
+        "label": "Flask",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "APScheduler",
+        "importPath": "flask_apscheduler",
+        "description": "flask_apscheduler",
+        "isExtraImport": true,
+        "detail": "flask_apscheduler",
+        "documentation": {}
+    },
+    {
+        "label": "run_drl_task",
+        "importPath": "drl_task",
+        "description": "drl_task",
+        "isExtraImport": true,
+        "detail": "drl_task",
+        "documentation": {}
+    },
+    {
         "label": "REST",
         "importPath": "alpaca_trade_api.rest",
         "description": "alpaca_trade_api.rest",
@@ -41,12 +65,66 @@
         "documentation": {}
     },
     {
+        "label": "run_drl_task",
+        "kind": 2,
+        "importPath": "api.drl_task",
+        "description": "api.drl_task",
+        "peekOfCode": "def run_drl_task():\n    print(\"Running DRL task...\")\n    # Add your DRL script logic here",
+        "detail": "api.drl_task",
+        "documentation": {}
+    },
+    {
         "label": "handler",
         "kind": 6,
         "importPath": "api.index",
         "description": "api.index",
         "peekOfCode": "class handler(BaseHTTPRequestHandler):\n# This method handles GET requests. \n# When a GET request is received, this method is automatically called.\n    def do_GET(self):\n        # Sends a 200 OK response status code to indicate the request was successful.\n        self.send_response(200)\n        self.send_header('Content-type','text/plain')\n        self.end_headers()\n        self.wfile.write('class handler(BaseHTTPRequestHandler):'.encode('utf-8'))\n        return",
         "detail": "api.index",
+        "documentation": {}
+    },
+    {
+        "label": "Config",
+        "kind": 6,
+        "importPath": "api.index2",
+        "description": "api.index2",
+        "peekOfCode": "class Config:\n    SCHEDULER_API_ENABLED = True\napp = Flask(__name__)\napp.config.from_object(Config())\nscheduler = APScheduler()\ndef scheduled_task():\n    run_drl_task()\n@app.route('/')\ndef index():\n    return 'DRL Task Scheduler is running.'",
+        "detail": "api.index2",
+        "documentation": {}
+    },
+    {
+        "label": "scheduled_task",
+        "kind": 2,
+        "importPath": "api.index2",
+        "description": "api.index2",
+        "peekOfCode": "def scheduled_task():\n    run_drl_task()\n@app.route('/')\ndef index():\n    return 'DRL Task Scheduler is running.'\nif __name__ == '__main__':\n    scheduler.init_app(app)\n    scheduler.start()\n    # Schedule the task to run every 10 seconds\n    scheduler.add_job(id='Scheduled Task', func=scheduled_task, trigger='interval', seconds=10)",
+        "detail": "api.index2",
+        "documentation": {}
+    },
+    {
+        "label": "index",
+        "kind": 2,
+        "importPath": "api.index2",
+        "description": "api.index2",
+        "peekOfCode": "def index():\n    return 'DRL Task Scheduler is running.'\nif __name__ == '__main__':\n    scheduler.init_app(app)\n    scheduler.start()\n    # Schedule the task to run every 10 seconds\n    scheduler.add_job(id='Scheduled Task', func=scheduled_task, trigger='interval', seconds=10)\n    app.run(debug=True)",
+        "detail": "api.index2",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 5,
+        "importPath": "api.index2",
+        "description": "api.index2",
+        "peekOfCode": "app = Flask(__name__)\napp.config.from_object(Config())\nscheduler = APScheduler()\ndef scheduled_task():\n    run_drl_task()\n@app.route('/')\ndef index():\n    return 'DRL Task Scheduler is running.'\nif __name__ == '__main__':\n    scheduler.init_app(app)",
+        "detail": "api.index2",
+        "documentation": {}
+    },
+    {
+        "label": "scheduler",
+        "kind": 5,
+        "importPath": "api.index2",
+        "description": "api.index2",
+        "peekOfCode": "scheduler = APScheduler()\ndef scheduled_task():\n    run_drl_task()\n@app.route('/')\ndef index():\n    return 'DRL Task Scheduler is running.'\nif __name__ == '__main__':\n    scheduler.init_app(app)\n    scheduler.start()\n    # Schedule the task to run every 10 seconds",
+        "detail": "api.index2",
         "documentation": {}
     },
     {
