@@ -24,6 +24,22 @@
         "documentation": {}
     },
     {
+        "label": "run_drl_task",
+        "importPath": "drl_task",
+        "description": "drl_task",
+        "isExtraImport": true,
+        "detail": "drl_task",
+        "documentation": {}
+    },
+    {
+        "label": "run_drl_task",
+        "importPath": "drl_task",
+        "description": "drl_task",
+        "isExtraImport": true,
+        "detail": "drl_task",
+        "documentation": {}
+    },
+    {
         "label": "Flask",
         "importPath": "flask",
         "description": "flask",
@@ -37,14 +53,6 @@
         "description": "flask_apscheduler",
         "isExtraImport": true,
         "detail": "flask_apscheduler",
-        "documentation": {}
-    },
-    {
-        "label": "run_drl_task",
-        "importPath": "drl_task",
-        "description": "drl_task",
-        "isExtraImport": true,
-        "detail": "drl_task",
         "documentation": {}
     },
     {
@@ -94,7 +102,16 @@
         "kind": 6,
         "importPath": "api.index",
         "description": "api.index",
-        "peekOfCode": "class handler(BaseHTTPRequestHandler):\n# When a GET request is received, this method is automatically called.\n    def do_GET(self):\n        # Sends a 200 OK response status code to indicate the request was successful.\n        self.send_response(200)\n        self.send_header('Content-type','text/plain')\n        self.end_headers()\n        self.wfile.write('class handler(BaseHTTPRequestHandler):'.encode('utf-8'))\n        print(\"ssfddfsdfsafddfs\")\n        return",
+        "peekOfCode": "class handler(BaseHTTPRequestHandler):\n# When a GET request is received, this method is automatically called.\n    def do_GET(self):\n        # Sends a 200 OK response status code to indicate the request was successful.\n        self.send_response(200)\n        self.send_header('Content-type','text/plain')\n        self.end_headers()\n        self.wfile.write('class handler(BaseHTTPRequestHandler):'.encode('utf-8'))\n        self.wfile.write(scheduled_task())\n        return",
+        "detail": "api.index",
+        "documentation": {}
+    },
+    {
+        "label": "scheduled_task",
+        "kind": 2,
+        "importPath": "api.index",
+        "description": "api.index",
+        "peekOfCode": "def scheduled_task():\n    run_drl_task()\nclass handler(BaseHTTPRequestHandler):\n# When a GET request is received, this method is automatically called.\n    def do_GET(self):\n        # Sends a 200 OK response status code to indicate the request was successful.\n        self.send_response(200)\n        self.send_header('Content-type','text/plain')\n        self.end_headers()\n        self.wfile.write('class handler(BaseHTTPRequestHandler):'.encode('utf-8'))",
         "detail": "api.index",
         "documentation": {}
     },

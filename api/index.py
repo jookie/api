@@ -2,8 +2,10 @@
 # from flask_apscheduler import APScheduler
 # from drl_task import run_drl_task  # Ensure this function is defined in drl_task.py
 from http.server import BaseHTTPRequestHandler
- 
+from drl_task import run_drl_task  # Ensure this function is defined in drl_task.py
 
+def scheduled_task():
+    run_drl_task()
 class handler(BaseHTTPRequestHandler):
 # When a GET request is received, this method is automatically called.
     def do_GET(self):
@@ -12,6 +14,6 @@ class handler(BaseHTTPRequestHandler):
         self.send_header('Content-type','text/plain')
         self.end_headers()
         self.wfile.write('class handler(BaseHTTPRequestHandler):'.encode('utf-8'))
-        print("ssfddfsdfsafddfs")
+        self.wfile.write(scheduled_task())
         return
 
