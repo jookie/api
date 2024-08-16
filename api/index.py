@@ -1,16 +1,27 @@
-# A custom request handler class handler is created by inheriting from BaseHTTPRequestHandler. 
-# This class will define how the server responds to HTTP requests.
-# This basic server will respond to any GET request with "Hello, world!".
-from http.server import BaseHTTPRequestHandler
- 
-class handler(BaseHTTPRequestHandler):
-# This method handles GET requests. 
-# When a GET request is received, this method is automatically called.
-    def do_GET(self):
-        # Sends a 200 OK response status code to indicate the request was successful.
-        self.send_response(200)
-        self.send_header('Content-type','text/plain')
-        self.end_headers()
-        self.wfile.write('class handler(BaseHTTPRequestHandler):'.encode('utf-8'))
-        return
+# pip install APScheduler
 
+from flask import Flask
+from flask_apscheduler import APScheduler
+from drl_task import run_drl_task  # Ensure this function is defined in drl_task.py
+
+class Config:
+    SCHEDULER_API_ENABLED = True
+
+app = Flask(__name__)
+app.config.from_object(Config())
+
+scheduler = APScheduler()
+
+def scheduled_task():
+    run_drl_task()
+
+@app.route('/')
+def index():
+    return 'DRL Task Scheduler is running.'
+
+if __name__ == '__main__':
+    scheduler.init_app(app)
+    scheduler.start()
+    # Schedule the task to run every 10 seconds
+    scheduler.add_job(id='Scheduled Task', func=scheduled_task, trigger='interval', seconds=10)
+    app.run(debug=True)
