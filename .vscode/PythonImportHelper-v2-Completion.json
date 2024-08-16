@@ -1,26 +1,10 @@
 [
     {
-        "label": "BaseHTTPRequestHandler",
-        "importPath": "http.server",
-        "description": "http.server",
+        "label": "Flask",
+        "importPath": "flask",
+        "description": "flask",
         "isExtraImport": true,
-        "detail": "http.server",
-        "documentation": {}
-    },
-    {
-        "label": "BaseHTTPRequestHandler",
-        "importPath": "http.server",
-        "description": "http.server",
-        "isExtraImport": true,
-        "detail": "http.server",
-        "documentation": {}
-    },
-    {
-        "label": "BaseHTTPRequestHandler",
-        "importPath": "http.server",
-        "description": "http.server",
-        "isExtraImport": true,
-        "detail": "http.server",
+        "detail": "flask",
         "documentation": {}
     },
     {
@@ -37,6 +21,38 @@
         "description": "flask_apscheduler",
         "isExtraImport": true,
         "detail": "flask_apscheduler",
+        "documentation": {}
+    },
+    {
+        "label": "APScheduler",
+        "importPath": "flask_apscheduler",
+        "description": "flask_apscheduler",
+        "isExtraImport": true,
+        "detail": "flask_apscheduler",
+        "documentation": {}
+    },
+    {
+        "label": "BaseHTTPRequestHandler",
+        "importPath": "http.server",
+        "description": "http.server",
+        "isExtraImport": true,
+        "detail": "http.server",
+        "documentation": {}
+    },
+    {
+        "label": "BaseHTTPRequestHandler",
+        "importPath": "http.server",
+        "description": "http.server",
+        "isExtraImport": true,
+        "detail": "http.server",
+        "documentation": {}
+    },
+    {
+        "label": "BaseHTTPRequestHandler",
+        "importPath": "http.server",
+        "description": "http.server",
+        "isExtraImport": true,
+        "detail": "http.server",
         "documentation": {}
     },
     {
