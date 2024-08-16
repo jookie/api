@@ -8,12 +8,99 @@
         "documentation": {}
     },
     {
+        "label": "REST",
+        "importPath": "alpaca_trade_api.rest",
+        "description": "alpaca_trade_api.rest",
+        "isExtraImport": true,
+        "detail": "alpaca_trade_api.rest",
+        "documentation": {}
+    },
+    {
+        "label": "TimeFrame",
+        "importPath": "alpaca_trade_api.rest",
+        "description": "alpaca_trade_api.rest",
+        "isExtraImport": true,
+        "detail": "alpaca_trade_api.rest",
+        "documentation": {}
+    },
+    {
+        "label": "PPO",
+        "importPath": "stable_baselines3",
+        "description": "stable_baselines3",
+        "isExtraImport": true,
+        "detail": "stable_baselines3",
+        "documentation": {}
+    },
+    {
         "label": "handler",
         "kind": 6,
         "importPath": "api.index",
         "description": "api.index",
         "peekOfCode": "class handler(BaseHTTPRequestHandler):\n# This method handles GET requests. \n# When a GET request is received, this method is automatically called.\n    def do_GET(self):\n        # Sends a 200 OK response status code to indicate the request was successful.\n        self.send_response(200)\n        self.send_header('Content-type','text/plain')\n        self.end_headers()\n        self.wfile.write('class handler(BaseHTTPRequestHandler):'.encode('utf-8'))\n        return",
         "detail": "api.index",
+        "documentation": {}
+    },
+    {
+        "label": "get_market_data",
+        "kind": 2,
+        "importPath": "examples. DRL-Alpaca-buy",
+        "description": "examples. DRL-Alpaca-buy",
+        "peekOfCode": "def get_market_data():\n    # Fetch recent market data for a specific stock\n    barset = api.get_bars(\"AAPL\", TimeFrame.Day, \"2023-01-01\", \"2024-01-01\").df\n    return barset\ndef place_order():\n    # Place an order for a specific stock\n    api.submit_order(\n        symbol=\"AAPL\",\n        qty=1,\n        side=\"buy\",",
+        "detail": "examples. DRL-Alpaca-buy",
+        "documentation": {}
+    },
+    {
+        "label": "place_order",
+        "kind": 2,
+        "importPath": "examples. DRL-Alpaca-buy",
+        "description": "examples. DRL-Alpaca-buy",
+        "peekOfCode": "def place_order():\n    # Place an order for a specific stock\n    api.submit_order(\n        symbol=\"AAPL\",\n        qty=1,\n        side=\"buy\",\n        type=\"market\",\n        time_in_force=\"gtc\"\n    )\ndef train_and_trade():",
+        "detail": "examples. DRL-Alpaca-buy",
+        "documentation": {}
+    },
+    {
+        "label": "train_and_trade",
+        "kind": 2,
+        "importPath": "examples. DRL-Alpaca-buy",
+        "description": "examples. DRL-Alpaca-buy",
+        "peekOfCode": "def train_and_trade():\n    # Load market data and train a DRL model\n    data = get_market_data()\n    # Assuming you have a pre-trained model or a specific logic here\n    # Example: model = PPO('MlpPolicy', env, verbose=1)\n    # model.learn(total_timesteps=10000)\n    # Decision-making logic (simplified for illustration)\n    action = \"buy\"  # This would come from the model prediction\n    if action == \"buy\":\n        place_order()",
+        "detail": "examples. DRL-Alpaca-buy",
+        "documentation": {}
+    },
+    {
+        "label": "ALPACA_API_KEY",
+        "kind": 5,
+        "importPath": "examples. DRL-Alpaca-buy",
+        "description": "examples. DRL-Alpaca-buy",
+        "peekOfCode": "ALPACA_API_KEY = 'your-alpaca-api-key'\nALPACA_SECRET_KEY = 'your-alpaca-secret-key'\nBASE_URL = 'https://paper-api.alpaca.markets'\n# Initialize Alpaca API\napi = REST(ALPACA_API_KEY, ALPACA_SECRET_KEY, base_url=BASE_URL)\ndef get_market_data():\n    # Fetch recent market data for a specific stock\n    barset = api.get_bars(\"AAPL\", TimeFrame.Day, \"2023-01-01\", \"2024-01-01\").df\n    return barset\ndef place_order():",
+        "detail": "examples. DRL-Alpaca-buy",
+        "documentation": {}
+    },
+    {
+        "label": "ALPACA_SECRET_KEY",
+        "kind": 5,
+        "importPath": "examples. DRL-Alpaca-buy",
+        "description": "examples. DRL-Alpaca-buy",
+        "peekOfCode": "ALPACA_SECRET_KEY = 'your-alpaca-secret-key'\nBASE_URL = 'https://paper-api.alpaca.markets'\n# Initialize Alpaca API\napi = REST(ALPACA_API_KEY, ALPACA_SECRET_KEY, base_url=BASE_URL)\ndef get_market_data():\n    # Fetch recent market data for a specific stock\n    barset = api.get_bars(\"AAPL\", TimeFrame.Day, \"2023-01-01\", \"2024-01-01\").df\n    return barset\ndef place_order():\n    # Place an order for a specific stock",
+        "detail": "examples. DRL-Alpaca-buy",
+        "documentation": {}
+    },
+    {
+        "label": "BASE_URL",
+        "kind": 5,
+        "importPath": "examples. DRL-Alpaca-buy",
+        "description": "examples. DRL-Alpaca-buy",
+        "peekOfCode": "BASE_URL = 'https://paper-api.alpaca.markets'\n# Initialize Alpaca API\napi = REST(ALPACA_API_KEY, ALPACA_SECRET_KEY, base_url=BASE_URL)\ndef get_market_data():\n    # Fetch recent market data for a specific stock\n    barset = api.get_bars(\"AAPL\", TimeFrame.Day, \"2023-01-01\", \"2024-01-01\").df\n    return barset\ndef place_order():\n    # Place an order for a specific stock\n    api.submit_order(",
+        "detail": "examples. DRL-Alpaca-buy",
+        "documentation": {}
+    },
+    {
+        "label": "api",
+        "kind": 5,
+        "importPath": "examples. DRL-Alpaca-buy",
+        "description": "examples. DRL-Alpaca-buy",
+        "peekOfCode": "api = REST(ALPACA_API_KEY, ALPACA_SECRET_KEY, base_url=BASE_URL)\ndef get_market_data():\n    # Fetch recent market data for a specific stock\n    barset = api.get_bars(\"AAPL\", TimeFrame.Day, \"2023-01-01\", \"2024-01-01\").df\n    return barset\ndef place_order():\n    # Place an order for a specific stock\n    api.submit_order(\n        symbol=\"AAPL\",\n        qty=1,",
+        "detail": "examples. DRL-Alpaca-buy",
         "documentation": {}
     },
     {
