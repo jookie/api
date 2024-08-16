@@ -24,22 +24,6 @@
         "documentation": {}
     },
     {
-        "label": "Drl",
-        "importPath": "drl_task",
-        "description": "drl_task",
-        "isExtraImport": true,
-        "detail": "drl_task",
-        "documentation": {}
-    },
-    {
-        "label": "run_drl_task",
-        "importPath": "drl_task",
-        "description": "drl_task",
-        "isExtraImport": true,
-        "detail": "drl_task",
-        "documentation": {}
-    },
-    {
         "label": "Flask",
         "importPath": "flask",
         "description": "flask",
@@ -53,6 +37,14 @@
         "description": "flask_apscheduler",
         "isExtraImport": true,
         "detail": "flask_apscheduler",
+        "documentation": {}
+    },
+    {
+        "label": "run_drl_task",
+        "importPath": "drl_task",
+        "description": "drl_task",
+        "isExtraImport": true,
+        "detail": "drl_task",
         "documentation": {}
     },
     {
