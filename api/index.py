@@ -17,6 +17,7 @@ class handler(BaseHTTPRequestHandler):
         self.send_header('Content-type','text/plain')
         self.end_headers()
         self.wfile.write('class handler(BaseHTTPRequestHandler):'.encode('utf-8'))
+        print("Running DRL task...")
         run_drl_task()
         return
 
