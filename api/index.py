@@ -23,7 +23,7 @@ def drl_task():
 def scheduled_drl_task():
     drl_task()
 
-@app.route('/')
+@app.route('/https://api-jojo.vercel.app/api')
 def index():
     return render_template_string('''
         <html>

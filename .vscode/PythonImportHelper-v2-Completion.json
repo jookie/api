@@ -127,7 +127,7 @@
         "kind": 2,
         "importPath": "api.index",
         "description": "api.index",
-        "peekOfCode": "def drl_task():\n    global current_time\n    current_time = datetime.now().strftime(\"%Y-%m-%d %H:%M:%S\")\n@scheduler.task('cron', id='drl_task', day_of_week='mon-fri', second='*/5')\ndef scheduled_drl_task():\n    drl_task()\n@app.route('/')\ndef index():\n    return render_template_string('''\n        <html>",
+        "peekOfCode": "def drl_task():\n    global current_time\n    current_time = datetime.now().strftime(\"%Y-%m-%d %H:%M:%S\")\n@scheduler.task('cron', id='drl_task', day_of_week='mon-fri', second='*/5')\ndef scheduled_drl_task():\n    drl_task()\n@app.route('/https://api-jojo.vercel.app/api')\ndef index():\n    return render_template_string('''\n        <html>",
         "detail": "api.index",
         "documentation": {}
     },
@@ -136,7 +136,7 @@
         "kind": 2,
         "importPath": "api.index",
         "description": "api.index",
-        "peekOfCode": "def scheduled_drl_task():\n    drl_task()\n@app.route('/')\ndef index():\n    return render_template_string('''\n        <html>\n            <head>\n                <title>Current Time Display</title>\n                <script type=\"text/javascript\">\n                    function fetchTime() {",
+        "peekOfCode": "def scheduled_drl_task():\n    drl_task()\n@app.route('/https://api-jojo.vercel.app/api')\ndef index():\n    return render_template_string('''\n        <html>\n            <head>\n                <title>Current Time Display</title>\n                <script type=\"text/javascript\">\n                    function fetchTime() {",
         "detail": "api.index",
         "documentation": {}
     },
@@ -181,7 +181,7 @@
         "kind": 5,
         "importPath": "api.index",
         "description": "api.index",
-        "peekOfCode": "current_time = \"\"\ndef drl_task():\n    global current_time\n    current_time = datetime.now().strftime(\"%Y-%m-%d %H:%M:%S\")\n@scheduler.task('cron', id='drl_task', day_of_week='mon-fri', second='*/5')\ndef scheduled_drl_task():\n    drl_task()\n@app.route('/')\ndef index():\n    return render_template_string('''",
+        "peekOfCode": "current_time = \"\"\ndef drl_task():\n    global current_time\n    current_time = datetime.now().strftime(\"%Y-%m-%d %H:%M:%S\")\n@scheduler.task('cron', id='drl_task', day_of_week='mon-fri', second='*/5')\ndef scheduled_drl_task():\n    drl_task()\n@app.route('/https://api-jojo.vercel.app/api')\ndef index():\n    return render_template_string('''",
         "detail": "api.index",
         "documentation": {}
     },
