@@ -19,15 +19,6 @@
     {
         "label": "handler",
         "kind": 2,
-        "importPath": "api.index",
-        "description": "api.index",
-        "peekOfCode": "def handler(request, response):\n    with open(\"data/hello.txt\", \"w\") as file:\n        file.write(\"step-by-step detailed guide and code\")\n    return response.status(200).send(\"File created successfully!\")",
-        "detail": "api.index",
-        "documentation": {}
-    },
-    {
-        "label": "handler",
-        "kind": 2,
         "importPath": "main",
         "description": "main",
         "peekOfCode": "def handler(request, response):\n    with open(\"data/hello.txt\", \"w\") as file:\n        file.write(\"step-by-step detailed guide and code\")\n    return response.status(200).send(\"File created successfully!\")",
