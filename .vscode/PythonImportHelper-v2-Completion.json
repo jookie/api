@@ -103,7 +103,7 @@
         "kind": 2,
         "importPath": "api.index",
         "description": "api.index",
-        "peekOfCode": "def run_drl_task_local(request_handler):\n    print(\"Running DRL task...\")\n    # Add your DRL script\n    print(\"Running DRL task...\")\n    # Add your DRL script logic here\n    request_handler.wfile.write('run_drl_task()'.encode('utf-8'))\nclass handler(BaseHTTPRequestHandler):\n# When a GET request is received, this method is automatically called.\n    def do_GET(self):\n        # Sends a 200 OK response status code to indicate the request was successful.",
+        "peekOfCode": "def run_drl_task_local(request_handler):\n    print(\"Running DRL task...\")\n    # Add your DRL script\n    print(\"Running DRL task...\")\n    # Add your DRL script logic here\n    request_handler.wfile.write('run_drl_task_local'.encode('utf-8'))\nclass handler(BaseHTTPRequestHandler):\n# When a GET request is received, this method is automatically called.\n    def do_GET(self):\n        # Sends a 200 OK response status code to indicate the request was successful.",
         "detail": "api.index",
         "documentation": {}
     },
