@@ -24,14 +24,6 @@
         "documentation": {}
     },
     {
-        "label": "run_drl_task_local",
-        "importPath": "api.index",
-        "description": "api.index",
-        "isExtraImport": true,
-        "detail": "api.index",
-        "documentation": {}
-    },
-    {
         "label": "Flask",
         "importPath": "flask",
         "description": "flask",
