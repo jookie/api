@@ -2,14 +2,11 @@
 # from flask_apscheduler import APScheduler
 # from drl_task import run_drl_task  # Ensure this function is defined in drl_task.py
 from http.server import BaseHTTPRequestHandler
-# from api.index import run_drl_task
+from drl_task import run_drl_task_external
 
 def run_drl_task_local(request_handler):
-    print("Running DRL task...")
-    # Add your DRL script
-    print("Running DRL task...")
-    # Add your DRL script logic here
     request_handler.wfile.write('run_drl_task_local'.encode('utf-8'))
+    run_drl_task_external(request_handler, 'run_drl_task_external() from req handler')
     
 class handler(BaseHTTPRequestHandler):
 # When a GET request is received, this method is automatically called.
@@ -19,7 +16,6 @@ class handler(BaseHTTPRequestHandler):
         self.send_header('Content-type','text/plain')
         self.end_headers()
         self.wfile.write('class handler(BaseHTTPRequestHandler):'.encode('utf-8'))
-        print("Running DRL task...")
         run_drl_task_local(self)
         return
 

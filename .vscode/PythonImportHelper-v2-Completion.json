@@ -24,6 +24,22 @@
         "documentation": {}
     },
     {
+        "label": "run_drl_task_external",
+        "importPath": "drl_task",
+        "description": "drl_task",
+        "isExtraImport": true,
+        "detail": "drl_task",
+        "documentation": {}
+    },
+    {
+        "label": "run_drl_task",
+        "importPath": "drl_task",
+        "description": "drl_task",
+        "isExtraImport": true,
+        "detail": "drl_task",
+        "documentation": {}
+    },
+    {
         "label": "Flask",
         "importPath": "flask",
         "description": "flask",
@@ -37,14 +53,6 @@
         "description": "flask_apscheduler",
         "isExtraImport": true,
         "detail": "flask_apscheduler",
-        "documentation": {}
-    },
-    {
-        "label": "run_drl_task",
-        "importPath": "drl_task",
-        "description": "drl_task",
-        "isExtraImport": true,
-        "detail": "drl_task",
         "documentation": {}
     },
     {
@@ -85,7 +93,7 @@
         "kind": 2,
         "importPath": "api.drl_task",
         "description": "api.drl_task",
-        "peekOfCode": "def run_drl_task(request_handler, msg):\n    print(msg)\n    request_handler.wfile.write('run_drl_task()from req handler '.encode('utf-8'))\n    # Add your DRL script logic here",
+        "peekOfCode": "def run_drl_task(request_handler, msg):\n    request_handler.wfile.write('run_drl_task()from req handler '.encode('utf-8'))\n    # Add your DRL script logic here",
         "detail": "api.drl_task",
         "documentation": {}
     },
@@ -94,7 +102,7 @@
         "kind": 6,
         "importPath": "api.index",
         "description": "api.index",
-        "peekOfCode": "class handler(BaseHTTPRequestHandler):\n# When a GET request is received, this method is automatically called.\n    def do_GET(self):\n        # Sends a 200 OK response status code to indicate the request was successful.\n        self.send_response(200)\n        self.send_header('Content-type','text/plain')\n        self.end_headers()\n        self.wfile.write('class handler(BaseHTTPRequestHandler):'.encode('utf-8'))\n        print(\"Running DRL task...\")\n        run_drl_task_local(self)",
+        "peekOfCode": "class handler(BaseHTTPRequestHandler):\n# When a GET request is received, this method is automatically called.\n    def do_GET(self):\n        # Sends a 200 OK response status code to indicate the request was successful.\n        self.send_response(200)\n        self.send_header('Content-type','text/plain')\n        self.end_headers()\n        self.wfile.write('class handler(BaseHTTPRequestHandler):'.encode('utf-8'))\n        run_drl_task_local(self)\n        return",
         "detail": "api.index",
         "documentation": {}
     },
@@ -103,7 +111,7 @@
         "kind": 2,
         "importPath": "api.index",
         "description": "api.index",
-        "peekOfCode": "def run_drl_task_local(request_handler):\n    print(\"Running DRL task...\")\n    # Add your DRL script\n    print(\"Running DRL task...\")\n    # Add your DRL script logic here\n    request_handler.wfile.write('run_drl_task_local'.encode('utf-8'))\nclass handler(BaseHTTPRequestHandler):\n# When a GET request is received, this method is automatically called.\n    def do_GET(self):\n        # Sends a 200 OK response status code to indicate the request was successful.",
+        "peekOfCode": "def run_drl_task_local(request_handler):\n    request_handler.wfile.write('run_drl_task_local'.encode('utf-8'))\n    run_drl_task_external(request_handler, 'run_drl_task_external() from req handler')\nclass handler(BaseHTTPRequestHandler):\n# When a GET request is received, this method is automatically called.\n    def do_GET(self):\n        # Sends a 200 OK response status code to indicate the request was successful.\n        self.send_response(200)\n        self.send_header('Content-type','text/plain')\n        self.end_headers()",
         "detail": "api.index",
         "documentation": {}
     },
