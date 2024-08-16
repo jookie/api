@@ -7,7 +7,7 @@ class Config:
 app = Flask(__name__)
 app.config.from_object(Config())
 scheduler = APScheduler()
-REQUEST_HANDLER = None
+REQUEST_HANDLER = ''
 
 def run_drl_task_local():
     REQUEST_HANDLER.wfile.write('class handler(BaseHTTPRequestHandler):'.encode('utf-8'))
@@ -23,7 +23,7 @@ class handler(BaseHTTPRequestHandler):
         self.send_response(200)
         self.send_header('Content-type','text/plain')
         self.end_headers()
-        self.wfile.write('doGet:'.encode('utf-8'))
+        self.wfile.write(REQUEST_HANDLER.encode('utf-8'))
         run_drl_task_local(self)
         return
 def scheduled_task():
