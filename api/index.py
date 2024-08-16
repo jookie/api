@@ -11,9 +11,7 @@ app.config.from_object(Config())
 scheduler = APScheduler()
 scheduler.init_app(app)
 scheduler.start()
-
 current_time = ""
-
 def drl_task():
     global current_time
     current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
