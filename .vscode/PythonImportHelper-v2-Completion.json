@@ -8,11 +8,28 @@
         "documentation": {}
     },
     {
+        "label": "BaseHTTPRequestHandler",
+        "importPath": "http.server",
+        "description": "http.server",
+        "isExtraImport": true,
+        "detail": "http.server",
+        "documentation": {}
+    },
+    {
+        "label": "handler",
+        "kind": 6,
+        "importPath": "api.task.index",
+        "description": "api.task.index",
+        "peekOfCode": "class handler(BaseHTTPRequestHandler):\n# This method handles GET requests. \n# When a GET request is received, this method is automatically called.\n    def do_GET(self):\n        # Sends a 200 OK response status code to indicate the request was successful.\n        self.send_response(200)\n        self.send_header('Content-type','text/plain')\n        self.end_headers()\n        self.wfile.write('class handler(BaseHTTPRequestHandler):'.encode('utf-8'))\n        return",
+        "detail": "api.task.index",
+        "documentation": {}
+    },
+    {
         "label": "handler",
         "kind": 6,
         "importPath": "api.index",
         "description": "api.index",
-        "peekOfCode": "class handler(BaseHTTPRequestHandler):\n    def do_GET(self):\n        self.send_response(200)\n        self.send_header('Content-type','text/plain')\n        self.end_headers()\n        self.wfile.write('Hello, world!'.encode('utf-8'))\n        return",
+        "peekOfCode": "class handler(BaseHTTPRequestHandler):\n# This method handles GET requests. \n# When a GET request is received, this method is automatically called.\n    def do_GET(self):\n        # Sends a 200 OK response status code to indicate the request was successful.\n        self.send_response(200)\n        self.send_header('Content-type','text/plain')\n        self.end_headers()\n        self.wfile.write('class handler(BaseHTTPRequestHandler):'.encode('utf-8'))\n        return",
         "detail": "api.index",
         "documentation": {}
     },

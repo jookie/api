@@ -1,5 +1,16 @@
 {
-  "redirects": [{ "source": "/", "destination": "/api" }]
+  "//": "This is a comment",
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/api"
+    }
+  ],
+  "cron": [
+    {
+      "path": "/api/task",
+      "schedule": "*/1 * * * *"
+    }
+  ]
 }
-
 
