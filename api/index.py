@@ -3,11 +3,12 @@
 # from drl_task import run_drl_task  # Ensure this function is defined in drl_task.py
 from http.server import BaseHTTPRequestHandler
 
-def run_drl_task():
+def run_drl_task(request_handler):
     print("Running DRL task...")
     # Add your DRL script
     print("Running DRL task...")
     # Add your DRL script logic here
+    request_handler.wfile.write('run_drl_task()'.encode('utf-8'))
     
 class handler(BaseHTTPRequestHandler):
 # When a GET request is received, this method is automatically called.
@@ -18,6 +19,6 @@ class handler(BaseHTTPRequestHandler):
         self.end_headers()
         self.wfile.write('class handler(BaseHTTPRequestHandler):'.encode('utf-8'))
         print("Running DRL task...")
-        run_drl_task()
+        run_drl_task(self)
         return
 
