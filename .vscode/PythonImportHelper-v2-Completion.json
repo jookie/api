@@ -8,14 +8,6 @@
         "documentation": {}
     },
     {
-        "label": "run_drl_task",
-        "importPath": "drl_task",
-        "description": "drl_task",
-        "isExtraImport": true,
-        "detail": "drl_task",
-        "documentation": {}
-    },
-    {
         "label": "REST",
         "importPath": "alpaca_trade_api.rest",
         "description": "alpaca_trade_api.rest",
@@ -62,16 +54,7 @@
         "kind": 6,
         "importPath": "api.index",
         "description": "api.index",
-        "peekOfCode": "class handler(BaseHTTPRequestHandler):\n# When a GET request is received, this method is automatically called.\n    def do_GET(self):\n        # Sends a 200 OK response status code to indicate the request was successful.\n        self.send_response(200)\n        self.send_header('Content-type','text/plain')\n        self.end_headers()\n        self.wfile.write('class handler(BaseHTTPRequestHandler):'.encode('utf-8'))\n        self.wfile.write(scheduled_task())\n        return",
-        "detail": "api.index",
-        "documentation": {}
-    },
-    {
-        "label": "scheduled_task",
-        "kind": 2,
-        "importPath": "api.index",
-        "description": "api.index",
-        "peekOfCode": "def scheduled_task():\n    run_drl_task()\nclass handler(BaseHTTPRequestHandler):\n# When a GET request is received, this method is automatically called.\n    def do_GET(self):\n        # Sends a 200 OK response status code to indicate the request was successful.\n        self.send_response(200)\n        self.send_header('Content-type','text/plain')\n        self.end_headers()\n        self.wfile.write('class handler(BaseHTTPRequestHandler):'.encode('utf-8'))",
+        "peekOfCode": "class handler(BaseHTTPRequestHandler):\n# When a GET request is received, this method is automatically called.\n    def do_GET(self):\n        # Sends a 200 OK response status code to indicate the request was successful.\n        self.send_response(200)\n        self.send_header('Content-type','text/plain')\n        self.end_headers()\n        self.wfile.write('class handler(BaseHTTPRequestHandler):'.encode('utf-8'))\n        return",
         "detail": "api.index",
         "documentation": {}
     },
