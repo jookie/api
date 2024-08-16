@@ -8,6 +8,14 @@
         "documentation": {}
     },
     {
+        "label": "render_template_string",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
         "label": "Flask",
         "importPath": "flask",
         "description": "flask",
@@ -16,30 +24,6 @@
         "documentation": {}
     },
     {
-        "label": "APScheduler",
-        "importPath": "flask_apscheduler",
-        "description": "flask_apscheduler",
-        "isExtraImport": true,
-        "detail": "flask_apscheduler",
-        "documentation": {}
-    },
-    {
-        "label": "APScheduler",
-        "importPath": "flask_apscheduler",
-        "description": "flask_apscheduler",
-        "isExtraImport": true,
-        "detail": "flask_apscheduler",
-        "documentation": {}
-    },
-    {
-        "label": "datetime",
-        "importPath": "datetime",
-        "description": "datetime",
-        "isExtraImport": true,
-        "detail": "datetime",
-        "documentation": {}
-    },
-    {
         "label": "BaseHTTPRequestHandler",
         "importPath": "http.server",
         "description": "http.server",
@@ -53,6 +37,14 @@
         "description": "http.server",
         "isExtraImport": true,
         "detail": "http.server",
+        "documentation": {}
+    },
+    {
+        "label": "APScheduler",
+        "importPath": "flask_apscheduler",
+        "description": "flask_apscheduler",
+        "isExtraImport": true,
+        "detail": "flask_apscheduler",
         "documentation": {}
     },
     {
@@ -106,20 +98,11 @@
         "documentation": {}
     },
     {
-        "label": "Config",
-        "kind": 6,
-        "importPath": "api.index",
-        "description": "api.index",
-        "peekOfCode": "class Config:\n    SCHEDULER_API_ENABLED = True\napp.config.from_object(Config())\n# Initialize the scheduler\nscheduler = APScheduler()\nscheduler.init_app(app)\nscheduler.start()\n# Define a job to run every 5 seconds\n@scheduler.task('interval', id='show_time', seconds=5, misfire_grace_time=900)\ndef show_time():",
-        "detail": "api.index",
-        "documentation": {}
-    },
-    {
-        "label": "show_time",
+        "label": "index",
         "kind": 2,
         "importPath": "api.index",
         "description": "api.index",
-        "peekOfCode": "def show_time():\n    print(f\"Current time: {datetime.now()}\")\nif __name__ == '__main__':\n    app.run(debug=True)",
+        "peekOfCode": "def index():\n    return render_template_string('''\n    <!DOCTYPE html>\n    <html lang=\"en\">\n    <head>\n        <meta charset=\"UTF-8\">\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n        <title>Current Time</title>\n        <script>\n            function updateTime() {",
         "detail": "api.index",
         "documentation": {}
     },
@@ -128,16 +111,7 @@
         "kind": 5,
         "importPath": "api.index",
         "description": "api.index",
-        "peekOfCode": "app = Flask(__name__)\n# Configuration for APScheduler\nclass Config:\n    SCHEDULER_API_ENABLED = True\napp.config.from_object(Config())\n# Initialize the scheduler\nscheduler = APScheduler()\nscheduler.init_app(app)\nscheduler.start()\n# Define a job to run every 5 seconds",
-        "detail": "api.index",
-        "documentation": {}
-    },
-    {
-        "label": "scheduler",
-        "kind": 5,
-        "importPath": "api.index",
-        "description": "api.index",
-        "peekOfCode": "scheduler = APScheduler()\nscheduler.init_app(app)\nscheduler.start()\n# Define a job to run every 5 seconds\n@scheduler.task('interval', id='show_time', seconds=5, misfire_grace_time=900)\ndef show_time():\n    print(f\"Current time: {datetime.now()}\")\nif __name__ == '__main__':\n    app.run(debug=True)",
+        "peekOfCode": "app = Flask(__name__)\n@app.route('/')\ndef index():\n    return render_template_string('''\n    <!DOCTYPE html>\n    <html lang=\"en\">\n    <head>\n        <meta charset=\"UTF-8\">\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n        <title>Current Time</title>",
         "detail": "api.index",
         "documentation": {}
     },

@@ -1,24 +1,31 @@
-from flask import Flask
-from flask_apscheduler import APScheduler
-from datetime import datetime
+from flask import Flask, render_template_string
 
 app = Flask(__name__)
 
-# Configuration for APScheduler
-class Config:
-    SCHEDULER_API_ENABLED = True
-
-app.config.from_object(Config())
-
-# Initialize the scheduler
-scheduler = APScheduler()
-scheduler.init_app(app)
-scheduler.start()
-
-# Define a job to run every 5 seconds
-@scheduler.task('interval', id='show_time', seconds=5, misfire_grace_time=900)
-def show_time():
-    print(f"Current time: {datetime.now()}")
+@app.route('/')
+def index():
+    return render_template_string('''
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Current Time</title>
+        <script>
+            function updateTime() {
+                const now = new Date();
+                document.getElementById('time').innerText = now.toLocaleTimeString();
+            }
+            setInterval(updateTime, 3000); // Update every 3 seconds
+        </script>
+    </head>
+    <body>
+        <h1>Current Time:</h1>
+        <div id="time"></div>
+        <script>updateTime();</script> <!-- Initial call to display time immediately -->
+    </body>
+    </html>
+    ''')
 
 if __name__ == '__main__':
     app.run(debug=True)
