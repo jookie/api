@@ -1,6 +1,5 @@
 {
-  "//": "This is a comment",
-  "redirects": [
+    "redirects": [
     {
       "source": "/",
       "destination": "/api"
