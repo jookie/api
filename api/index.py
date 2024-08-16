@@ -6,7 +6,7 @@ from drl_task import run_drl_task_external
 
 def run_drl_task_local(request_handler):
     request_handler.wfile.write('run_drl_task_local'.encode('utf-8'))
-    run_drl_task_external(request_handler, 'run_drl_task_external() from req handler')
+    # run_drl_task_external(request_handler, 'run_drl_task_external() from req handler')
     
 class handler(BaseHTTPRequestHandler):
 # When a GET request is received, this method is automatically called.
