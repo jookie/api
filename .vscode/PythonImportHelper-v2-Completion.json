@@ -24,19 +24,11 @@
         "documentation": {}
     },
     {
-        "label": "BaseHTTPRequestHandler",
-        "importPath": "http.server",
-        "description": "http.server",
+        "label": "APScheduler",
+        "importPath": "flask_apscheduler",
+        "description": "flask_apscheduler",
         "isExtraImport": true,
-        "detail": "http.server",
-        "documentation": {}
-    },
-    {
-        "label": "BaseHTTPRequestHandler",
-        "importPath": "http.server",
-        "description": "http.server",
-        "isExtraImport": true,
-        "detail": "http.server",
+        "detail": "flask_apscheduler",
         "documentation": {}
     },
     {
@@ -45,6 +37,30 @@
         "description": "flask_apscheduler",
         "isExtraImport": true,
         "detail": "flask_apscheduler",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "BaseHTTPRequestHandler",
+        "importPath": "http.server",
+        "description": "http.server",
+        "isExtraImport": true,
+        "detail": "http.server",
+        "documentation": {}
+    },
+    {
+        "label": "BaseHTTPRequestHandler",
+        "importPath": "http.server",
+        "description": "http.server",
+        "isExtraImport": true,
+        "detail": "http.server",
         "documentation": {}
     },
     {
@@ -98,11 +114,47 @@
         "documentation": {}
     },
     {
+        "label": "Config",
+        "kind": 6,
+        "importPath": "api.index",
+        "description": "api.index",
+        "peekOfCode": "class Config:\n    SCHEDULER_API_ENABLED = True\napp.config.from_object(Config())\nscheduler = APScheduler()\nscheduler.init_app(app)\nscheduler.start()\ncurrent_time = \"\"\ndef drl_task():\n    global current_time\n    current_time = datetime.now().strftime(\"%Y-%m-%d %H:%M:%S\")",
+        "detail": "api.index",
+        "documentation": {}
+    },
+    {
+        "label": "drl_task",
+        "kind": 2,
+        "importPath": "api.index",
+        "description": "api.index",
+        "peekOfCode": "def drl_task():\n    global current_time\n    current_time = datetime.now().strftime(\"%Y-%m-%d %H:%M:%S\")\n@scheduler.task('cron', id='drl_task', day_of_week='mon-fri', second='*/5')\ndef scheduled_drl_task():\n    drl_task()\n@app.route('/')\ndef index():\n    return render_template_string('''\n        <html>",
+        "detail": "api.index",
+        "documentation": {}
+    },
+    {
+        "label": "scheduled_drl_task",
+        "kind": 2,
+        "importPath": "api.index",
+        "description": "api.index",
+        "peekOfCode": "def scheduled_drl_task():\n    drl_task()\n@app.route('/')\ndef index():\n    return render_template_string('''\n        <html>\n            <head>\n                <title>Current Time Display</title>\n                <script type=\"text/javascript\">\n                    function fetchTime() {",
+        "detail": "api.index",
+        "documentation": {}
+    },
+    {
         "label": "index",
         "kind": 2,
         "importPath": "api.index",
         "description": "api.index",
-        "peekOfCode": "def index():\n    return render_template_string('''\n    <!DOCTYPE html>\n    <html lang=\"en\">\n    <head>\n        <meta charset=\"UTF-8\">\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n        <title>Current Time</title>\n        <script>\n            function updateTime() {",
+        "peekOfCode": "def index():\n    return render_template_string('''\n        <html>\n            <head>\n                <title>Current Time Display</title>\n                <script type=\"text/javascript\">\n                    function fetchTime() {\n                        fetch('/time')\n                            .then(response => response.text())\n                            .then(data => {",
+        "detail": "api.index",
+        "documentation": {}
+    },
+    {
+        "label": "get_time",
+        "kind": 2,
+        "importPath": "api.index",
+        "description": "api.index",
+        "peekOfCode": "def get_time():\n    return current_time\nif __name__ == \"__main__\":\n    app.run(debug=True)",
         "detail": "api.index",
         "documentation": {}
     },
@@ -111,7 +163,25 @@
         "kind": 5,
         "importPath": "api.index",
         "description": "api.index",
-        "peekOfCode": "app = Flask(__name__)\n@app.route('/')\ndef index():\n    return render_template_string('''\n    <!DOCTYPE html>\n    <html lang=\"en\">\n    <head>\n        <meta charset=\"UTF-8\">\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n        <title>Current Time</title>",
+        "peekOfCode": "app = Flask(__name__)\nclass Config:\n    SCHEDULER_API_ENABLED = True\napp.config.from_object(Config())\nscheduler = APScheduler()\nscheduler.init_app(app)\nscheduler.start()\ncurrent_time = \"\"\ndef drl_task():\n    global current_time",
+        "detail": "api.index",
+        "documentation": {}
+    },
+    {
+        "label": "scheduler",
+        "kind": 5,
+        "importPath": "api.index",
+        "description": "api.index",
+        "peekOfCode": "scheduler = APScheduler()\nscheduler.init_app(app)\nscheduler.start()\ncurrent_time = \"\"\ndef drl_task():\n    global current_time\n    current_time = datetime.now().strftime(\"%Y-%m-%d %H:%M:%S\")\n@scheduler.task('cron', id='drl_task', day_of_week='mon-fri', second='*/5')\ndef scheduled_drl_task():\n    drl_task()",
+        "detail": "api.index",
+        "documentation": {}
+    },
+    {
+        "label": "current_time",
+        "kind": 5,
+        "importPath": "api.index",
+        "description": "api.index",
+        "peekOfCode": "current_time = \"\"\ndef drl_task():\n    global current_time\n    current_time = datetime.now().strftime(\"%Y-%m-%d %H:%M:%S\")\n@scheduler.task('cron', id='drl_task', day_of_week='mon-fri', second='*/5')\ndef scheduled_drl_task():\n    drl_task()\n@app.route('/')\ndef index():\n    return render_template_string('''",
         "detail": "api.index",
         "documentation": {}
     },
