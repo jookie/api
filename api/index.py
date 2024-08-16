@@ -20,6 +20,6 @@ class handler(BaseHTTPRequestHandler):
         self.end_headers()
         self.wfile.write('class handler(BaseHTTPRequestHandler):'.encode('utf-8'))
         print("Running DRL task...")
-        # run_drl_task_local(self)
+        run_drl_task_local(self)
         return
 

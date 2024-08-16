@@ -94,7 +94,7 @@
         "kind": 6,
         "importPath": "api.index",
         "description": "api.index",
-        "peekOfCode": "class handler(BaseHTTPRequestHandler):\n# When a GET request is received, this method is automatically called.\n    def do_GET(self):\n        # Sends a 200 OK response status code to indicate the request was successful.\n        self.send_response(200)\n        self.send_header('Content-type','text/plain')\n        self.end_headers()\n        self.wfile.write('class handler(BaseHTTPRequestHandler):'.encode('utf-8'))\n        print(\"Running DRL task...\")\n        # run_drl_task_local(self)",
+        "peekOfCode": "class handler(BaseHTTPRequestHandler):\n# When a GET request is received, this method is automatically called.\n    def do_GET(self):\n        # Sends a 200 OK response status code to indicate the request was successful.\n        self.send_response(200)\n        self.send_header('Content-type','text/plain')\n        self.end_headers()\n        self.wfile.write('class handler(BaseHTTPRequestHandler):'.encode('utf-8'))\n        print(\"Running DRL task...\")\n        run_drl_task_local(self)",
         "detail": "api.index",
         "documentation": {}
     },
