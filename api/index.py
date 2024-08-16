@@ -3,7 +3,6 @@ from flask_apscheduler import APScheduler
 from datetime import datetime
 
 app = Flask(__name__)
-
 class Config:
     SCHEDULER_API_ENABLED = True
 
