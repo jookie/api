@@ -4,6 +4,15 @@ from flask_apscheduler import APScheduler
 from http.server import BaseHTTPRequestHandler
 # from drl_task import Drl
 
+class Config:
+    SCHEDULER_API_ENABLED = True
+
+app = Flask(__name__)
+app.config.from_object(Config())
+
+scheduler = APScheduler()
+
+
 def run_drl_task_local(request_handler):
     request_handler.wfile.write('run_drl_task_local'.encode('utf-8'))
     # Drl(request_handler, 'req handler')
