@@ -15,7 +15,8 @@ scheduler = APScheduler()
 
 
 def run_drl_task_local(request_handler):
-    request_handler.wfile.write(''.encode('utf-8'))
+    # request_handler.wfile.write(''.encode('utf-8'))
+    request_handler.wfile.write('class handler(BaseHTTPRequestHandler):'.encode('utf-8'))
     current_time = datetime.now().time()
     request_handler.wfile.write(f'Current Time: {current_time}'.encode('utf-8'))
     # Drl(request_handler, 'req handler')
@@ -27,8 +28,8 @@ class handler(BaseHTTPRequestHandler):
         self.send_response(200)
         self.send_header('Content-type','text/plain')
         self.end_headers()
-        self.wfile.write('class handler(BaseHTTPRequestHandler):'.encode('utf-8'))
-        # run_drl_task_local(self)
+        self.wfile.write('doGet:'.encode('utf-8'))
+        run_drl_task_local(self)
         return
 def scheduled_task():
     run_drl_task_local()    
