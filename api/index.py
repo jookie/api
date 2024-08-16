@@ -5,9 +5,7 @@ from datetime import datetime
 app = Flask(__name__)
 class Config:
     SCHEDULER_API_ENABLED = True
-
 app.config.from_object(Config())
-
 scheduler = APScheduler()
 scheduler.init_app(app)
 scheduler.start()
