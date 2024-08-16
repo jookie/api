@@ -9,7 +9,7 @@ def run_drl_task_local(request_handler):
     # Add your DRL script
     print("Running DRL task...")
     # Add your DRL script logic here
-    request_handler.wfile.write('drl_task()'.encode('utf-8'))
+    # request_handler.wfile.write('drl_task()'.encode('utf-8'))
     
 class handler(BaseHTTPRequestHandler):
 # When a GET request is received, this method is automatically called.
